@@ -1,0 +1,582 @@
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: Inter, sans-serif;
+}
+body{
+     display: flex;
+     justify-content: center;
+}
+:root{
+     --white : #fff;
+     --bgHeader: linear-gradient(180deg,rgba(0,0,0,0.56) 0%,rgba(0,0,0,0) 100%);
+     --bgHeader2: #E8952F;
+     --yellow1: #FAB005;
+     --orange1: #FD8C42;
+     --orange2: #FBC7A5;
+     --orange3: #FC8233;
+     --orange4: #EAA044;
+     --red1: #FE4B4B;
+     --blue1 : #2d77d8;
+     --blue2 : #4472C4;
+     --green1: #008B6A;
+     --green3: #00A77F;
+     --green2: rgba(5,79,53,0.9);
+     --text1: #272727;
+     --grey1: rgb(87, 86, 86);
+     --orangeGradien1: linear-gradient(180deg,#FF744A 0%,rgba(255,116,74,0) 100%);
+     --instagramGradient: linear-gradient(45deg, rgb(206, 206, 50), rgb(207, 46, 73) 40%, #7A47B5 80%,#4C57CE 90%);
+     --basicGradient1--galaxy : linear-gradient(to right top, #0014ff , #ff2cdf);
+     --basicGradient2--galaxy : linear-gradient(to right top, #ff0a6c , #2d27ff);
+     --basicGradient3--neon : linear-gradient(180deg, #035755 , #00FFFB);
+     --container-w: 1140;
+     --container-w-px: 1140px;
+}
+ul{     
+     display: flex;
+     width: 100%;
+}
+li{
+     list-style:none;
+}
+a{
+     /* Muốn thay đổi chữ theo ý thì thay đổi ở đây */
+     color: #000;
+     font-size: 20px;
+     text-decoration: none;
+}
+.title{
+     font-size: 18px;
+     font-weight: 500;
+}
+.content{
+     font-size: 16px;
+     padding: 10px;
+}
+.content.note {
+     font-size: 13px;
+     display: flex;
+}
+.large_btn{
+     padding: 10px 20px;
+     font-size: 14px!important;
+     border-radius: 5px;
+     border: 2px solid var(--orange1);
+     background: var(--white);
+     color: var(--orange1)!important;
+     display: flex;
+     justify-content: center!important;
+     align-items: center;
+}
+.large_btn:hover {
+     border: 2px solid var(--orange1);
+     background: var(--orange1);
+     color: var(--white)!important;
+}
+/*============================================ PHẦN HEADER CHUNG ============================================ */
+.Sale_Container{
+     width: 100%;
+     min-height: 2000px;
+}
+.header,.body,.footer{
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: background-color 0.5s;
+}
+.header{
+     /* Phần background chỉnh thay đổi màu ở đây */
+     background:#000;
+     z-index: 100;
+     position: fixed;
+}
+.header .head_container,
+.body .body_container{
+     width: 1050px;
+     /* width: 1050px; */
+     display: flex;
+     justify-content: space-between;
+     align-items: center;     
+     /* border: 1px solid #fff; */
+}
+.body_container{
+     flex-direction: column;
+}
+.head_container .head_left,
+.head_container .head_right{
+     flex-basis: 46%;
+     /* border: 1px solid #fff; */
+     display: flex;
+     justify-content: center;
+}
+/* Phần bên trái của header*/
+.head_container .head_left{
+     justify-content: left;
+}
+.head_container .head_left ul{
+     width: 100%;
+}
+.head_container .head_left ul li {
+     /* margin-right: 95px; */
+     flex-basis: calc(100% / 3);
+}
+.head_left a,
+.head_right a {
+     color: #fff;
+     position: relative;
+}
+.head_container .head_left ul li a::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     bottom: -10px;
+     height: 3px;
+     background: #fff;
+     left: 0;
+     border-radius: 1px;
+     transition: 0.5s ease-out;
+}
+.head_container .head_left ul li:hover a::after {
+     width: 100%;
+     background: var(--orange1);
+}
+.head_container .head_left ul li:hover a {
+     color: var(--orange1);
+}
+/* Phần bên phải của header */
+.head_container .head_right{
+     justify-content: right;
+     text-align: right;
+     /* align-items: end; */
+}
+.head_container .head_right ul li {
+     /* margin-left: 100px; */
+     flex-basis: calc(100% / 2);
+     /* position: relative; */
+}
+.head_container .head_right ul li a::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     bottom: -10px;
+     height: 3px;
+     background: #fff;
+     right: 0;
+     border-radius: 1px;
+     transition: 0.5s ease-out;
+}
+.head_container .head_right ul li:hover a::after {
+     width: 100%;
+     background: var(--orange1);
+}
+.head_container .head_right ul li:hover a {
+     color: var(--orange1);
+}
+/* Phần để cho css để chuyển màu menu */
+.header.scrolled{
+     background: #000;
+     opacity: 0.98;
+}
+.header.scrolled .head_left ul li a,.header.scrolled .head_right ul li a {
+     color: #fff;
+}
+.header.scrolled .head_left ul li:hover a,
+.header.scrolled .head_right ul li:hover a {
+     color: var(--orange1);
+}
+/* Phần chỉnh header theo định dạng iphone 14 Pro Max */
+.head_container.phone{
+     display: none;
+}
+.head_container.phone .mini_nav{
+     display: none;
+}
+.head_container.phone .head_left{
+     display: flex;
+     justify-content: left;
+     align-items: center;
+}
+/* NUT HAMBERGUR mini menu */
+.head_container.phone .MiniMenu {
+     position: fixed;
+}
+.head_container.phone .MiniMenu_button{
+     margin: 0px 10px;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 50px;height: 50px;
+     cursor: pointer;
+     transition: all .5s ease-in-out;
+     display: flex;
+}
+.head_container.phone .MiniMenu_button .ham-btn__burger i {
+     color: #fff;
+     font-size: 1.3em;
+}
+
+/*Chinh phần mininav  */
+.head_container.phone .mini_nav{
+     /* display: none;  */
+     transition:width 2s;
+     position: fixed;
+     left: -260px;
+}
+
+.head_container.phone .mini_nav.toggle{
+     display: block;
+     height: 100%;
+     flex-direction: column;
+     width: 250px;
+     background: #000;
+     position: fixed;
+     top: 0; left: 0px;
+     transition: width 2s!important;
+}
+
+.head_container.phone  .mini_nav .MiniMenu_button.exit{
+     margin-top: 25px;
+     transform: translateX(190px);
+}
+
+.head_container.phone  .mini_nav li{
+     list-style: none;
+     padding: 20px ;
+     transition: 0.5s;
+}
+.head_container.phone  .mini_nav li:hover a {
+     color:var(--orange1);
+}
+.head_container.phone  .mini_nav li a {
+     color: #fff;
+     text-decoration: none;
+}
+/*================================================= PHẦN BODY =============================================== */
+.body_container{
+     margin-top: 110px;
+     display: flex;
+     justify-content: center!important;
+}
+/*============================================ PHẦN SEARCH CHUNG ============================================ */
+.SearchBar{
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+}
+.SearchBar .Srch {
+     padding: 10px 0;
+     border-right: 1px solid gray;
+     flex-basis: 29%;
+     display: flex;
+     font-size: 17px;
+     justify-content: left;
+     color: var(--grey1); 
+}
+.SearchBar .Srch.Preferential,.Srch.Search_Btn{
+     border: none;
+}
+.SearchBar .content{
+     flex-direction: column;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+#GetDate{
+     display: grid;
+     grid-template-columns: 1fr auto 1fr;
+}
+.SearchBar .Srch .icon{
+     margin: 10px;
+     display: flex;
+     justify-items: center;
+     align-items: center;
+     transform: translateY(-20%);
+}
+.SearchBar .Srch .icon i{
+     color: var(--grey1) ;
+     font-size: 23px;
+}
+.SearchBar .Srch:hover .icon i,.SearchBar .Srch:hover .title{
+     color: #000;
+     font-weight: bold;
+}
+.SearchBar .Srch:hover .icon i,.SearchBar .Srch:hover .content.note{
+     color: var(--orange1);
+}
+.Srch.Search_Btn{
+     display: flex;
+     justify-content: right;
+     /* margin-right: 90px; */
+     flex-basis: 15%;
+}
+.Srch.Search_Btn .large_btn{
+     width: 100%;
+}
+/* Chỉnh riêng phần Calander cho khu tìm kiếm bằng ngày tháng */
+
+.Srch.Day #GetDate{
+     position: relative;
+     cursor: pointer;
+}
+.Calander{
+     display: none;
+}
+.Calander label{
+     font-size: 15px;
+     font-weight: bold;
+}
+.Calander input[type = text]{
+     border: none;
+     background: transparent;
+     border-bottom:2px solid var(--orange1) ;
+     outline: none;
+     width: 70px;
+}
+.Srch.Day .Calander.toggle{
+     padding: 10px;
+     position: absolute;
+     top: 200px;
+     display: block;
+     background: #f3f3f3;
+     width: auto;
+     height: 50px;
+     border: 1px solid #bbbbbb;
+     border-radius: 5px;
+     z-index: 99;
+}
+/* Calander sử dụng bằng JQuerry */
+     .ui-datepicker {
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+     }
+     
+     .ui-datepicker-header {
+     width: 100%;
+     border-bottom:  2px solid #FD8C42;
+     /* color: #fdfbfb; */
+     /* border-radius: 10px; */
+     }
+     .ui-datepicker .ui-datepicker-next,
+     .ui-datepicker .ui-datepicker-prev{
+     border-radius: 50%;
+     width: 1.5em!important;
+     height: 1.5em!important;
+     }
+     .ui-datepicker-title {
+     font-weight: bold;
+     }
+     
+     .ui-datepicker-calendar th {
+     background: #fdfbfb;
+     /* color: #fff; */
+     border-radius: 10px;
+     }
+     .ui-datepicker-week-end span{
+          color: rgb(133, 2, 2);
+     }
+     .ui-datepicker-calendar td {
+     padding: 0.4em;
+     background: #fff;
+     border-radius: 50%;
+     }
+     .ui-datepicker-calendar td .ui-state-default{
+     display: flex;
+     border: none;
+     justify-content: center;
+     align-items: center;
+     border-radius: 10px;
+     font-weight: bold;
+     font-size: 15px;
+     }
+     .ui-state-highlight{
+          border: #fc1b1b!important;
+          background: #fc1b1b!important;
+          color: #fff!important;
+     }
+     .ui-datepicker-today {
+          background-color: #efe8f3 !important;
+     }
+     
+     .ui-datepicker-group {
+          border: none;
+     }
+     
+     /* Tùy chỉnh màu khi hover trên ngày */
+     .ui-datepicker-calendar td:hover a{
+          background-color: #FD8C42;
+          color: #fff;
+     }
+     
+     /* Tùy chỉnh màu cho ngày đã chọn */
+     .ui-datepicker-calendar .ui-state-active {
+          background-color: #FD8C42 !important;
+          color: #fff !important;
+          border:#FD8C42 ;
+     }
+     
+     /* Tùy chỉnh màu cho ngày hợp lệ */
+     .ui-datepicker-calendar .ui-state-default {
+          color: #333;
+     }
+     
+     /* Tùy chỉnh màu cho ngày không hợp lệ */
+     .ui-datepicker-calendar .ui-state-disabled {
+          color: #ccc;
+     }
+     
+     /* Tùy chỉnh màu khi hover trên nút */
+     .ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+          background-color: #fff;
+          border:1px solid #FD8C42;
+          height: 1.5em;
+          width: 1.5em;
+     }
+     
+     /* Tùy chỉnh màu của nút */
+     .ui-datepicker-prev, .ui-datepicker-next {
+          background-color: #f0f0f0;
+          color: #333;
+          border: 1px solid #ccc;
+          padding: 3px 6px;
+          border-radius: 3px;
+     }
+     
+     /* Ẩn phần khung điều chỉnh tháng */
+     .ui-datepicker .ui-datepicker-group {
+          display: none;
+     }
+     .content_title{
+          padding: 10px;
+     }
+/*============================================ THÀNH PHẦN CHÍNH ============================================ */
+
+/*============================================ THÀNH PHẦN BÊN TRÁI ============================================ */
+
+/* ROOM STYLE*/
+.room_container{
+     background: linear-gradient(90.7deg,#BD3B84 -5.19%,#7C006F 33.29%,#7C006F 62.51%,#BD3B84 109.28%);
+     padding-top: 40px;
+}
+.room_eat{
+     background: linear-gradient(90.7deg,#BD3B84 -5.19%,#7C006F 33.29%,#7C006F 62.51%,#BD3B84 109.28%);
+     padding-top: 40px;
+}
+
+   
+/* FOOTER */
+.footer{
+     width: 100%;
+    background-image: linear-gradient(180deg, rgba(193, 189, 222, 0.56) 70%, rgba(203, 252, 245, 0) 100%);
+}
+.footer_container{
+     width: 1200px;
+}
+footer {
+    /* background-color: #f8f9fa; */
+    width: 1200px;
+    padding: 40px 0;
+    position: relative;
+    bottom: 0;
+  }
+  
+  footer {
+    color: #333;
+    padding: 40px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+  .footer-col{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    justify-content: space-between;
+  }
+  .col-item{
+    flex: 1;
+    margin-left: 20px;
+  }
+  .col-list ul{
+    list-style: none;
+  }
+  .col-list ul a{
+    text-decoration: none;
+    color: #333;
+  }
+  .col-title{
+    font-weight: bold;
+  }
+  footer .social-icons {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer .social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  footer .social-icons li a {
+    color: #666;
+    font-size: 20px;
+  }
+  
+  footer .social-icons li a:hover {
+    color: #007bff;
+  }
+  
+  footer hr {
+    border-top: 1px solid #ddd;
+  }
+  .row{
+     display: flex;
+     justify-content: space-between;
+     max-width: 80%;
+     margin: auto;
+     padding-top: 20px;
+   }
+   
+
+
+
+   @media(max-width: 991px){
+     /* Phần header */
+     .head_container.desktop{
+          display: none;
+     }
+     .head_container.phone{
+          display: flex;
+     }
+     /* Phần body */
+     .large_btn{
+          padding: 5px 10px;
+          font-size: 10px;
+     }
+     .SearchBar i{
+          font-size: 15px;
+     }
+     .SearchBar .title{
+          font-size: 13px;
+     }
+     .SearchBar .content.note{
+          font-size: 10px;
+     }
+}
+
+
+
+
+/* 
+   @media(max-width: 991px){
+     .head_container.desktop{
+          display: none;
+     }
+     .head_container.phone{
+          display: flex;
+     }
+} */
